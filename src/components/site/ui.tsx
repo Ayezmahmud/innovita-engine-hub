@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return <span className="eyebrow">{children}</span>;
@@ -14,7 +15,7 @@ export function ArrowIcon({ className = "h-3.5 w-3.5" }: { className?: string })
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <a href="#top" className="flex items-center gap-2.5" aria-label="INNOVITA Engineering Solutions">
+    <Link to="/" className="flex items-center gap-2.5" aria-label="INNOVITA Engineering Solutions">
       <svg viewBox="0 0 40 40" className="h-9 w-9" aria-hidden>
         <path d="M20 2 36 11v18L20 38 4 29V11z" fill="var(--primary)" />
         <path d="M20 9 30 14.6v10.8L20 31 10 25.4V14.6z" fill="none" stroke="white" strokeWidth="2" />
@@ -28,7 +29,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           </span>
         </span>
       )}
-    </a>
+    </Link>
   );
 }
 
@@ -59,5 +60,81 @@ export function Annotation({
   );
 }
 
-export const NAV = ["Home", "About", "Services", "Industries", "Projects", "Why Us", "Contact"] as const;
-export const navHref = (n: string) => `#${n.toLowerCase().replace(/\s+/g, "-")}`;
+export type NavItem = { label: string; to: string };
+
+export const NAV: NavItem[] = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Industries", to: "/industries" },
+  { label: "Projects", to: "/projects" },
+  { label: "Why Us", to: "/why-us" },
+  { label: "Contact", to: "/contact" },
+];
+
+export function PageHero({
+  eyebrow,
+  title,
+  lead,
+  meta,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  lead: string;
+  meta?: { k: string; v: string }[];
+}) {
+  return (
+    <section className="relative overflow-hidden border-b border-border bg-surface pt-32 pb-14 lg:pt-40 lg:pb-20">
+      <div className="bg-grid-fine pointer-events-none absolute inset-0 opacity-70 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+      <div className="container-x relative">
+        <div data-reveal>
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </div>
+        <h1 data-reveal className="mt-4 max-w-3xl text-[2.2rem] font-extrabold leading-[1.06] tracking-tight text-navy lg:text-[3.2rem]">
+          {title}
+        </h1>
+        <p data-reveal data-delay="0.1" className="mt-6 max-w-xl text-[0.95rem] leading-relaxed text-graphite">
+          {lead}
+        </p>
+        {meta && (
+          <dl data-reveal data-delay="0.16" className="mt-10 grid max-w-3xl grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-4">
+            {meta.map((m) => (
+              <div key={m.k} className="bg-background px-4 py-4">
+                <dt className="tech-label">{m.k}</dt>
+                <dd className="mt-1.5 font-mono text-[0.95rem] font-medium text-navy">{m.v}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export function SectionHead({
+  eyebrow,
+  title,
+  lead,
+  className = "",
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  lead?: string;
+  className?: string;
+}) {
+  return (
+    <div className={`max-w-2xl ${className}`}>
+      <div data-reveal>
+        <Eyebrow>{eyebrow}</Eyebrow>
+      </div>
+      <h2 data-reveal className="mt-4 text-[1.9rem] font-extrabold leading-[1.1] text-navy lg:text-[2.3rem]">
+        {title}
+      </h2>
+      {lead && (
+        <p data-reveal className="mt-5 text-[0.9rem] leading-relaxed text-graphite">
+          {lead}
+        </p>
+      )}
+    </div>
+  );
+}
