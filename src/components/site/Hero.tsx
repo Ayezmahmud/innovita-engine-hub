@@ -26,16 +26,16 @@ export function Hero() {
 
       {/* interactive assembly */}
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[56%] md:block lg:w-[52%]">
-        <div className="absolute inset-x-[8%] top-[18%] bottom-[14%]">
+        <div className="absolute inset-x-[10%] top-[22%] bottom-[12%]">
           <ClientOnly fallback={null}>
             <Suspense fallback={null}>
               <HeroSceneFrame progress={progress} />
             </Suspense>
           </ClientOnly>
-          <Annotation k="Stress" v="245 MPa" className="left-[6%] top-[12%]" />
-          <Annotation k="Material" v="S355 Steel" className="right-[4%] top-[20%]" side="right" />
-          <Annotation k="Load" v="1,250 kN" className="left-[2%] bottom-[22%]" />
-          <Annotation k="Safety Factor" v="2.8" className="right-[8%] bottom-[14%]" side="right" />
+          <Annotation k="Stress" v="245 MPa" className="left-[6%] top-[12%]" reveal="load" />
+          <Annotation k="Material" v="S355 Steel" className="right-[4%] top-[20%]" side="right" reveal="load" />
+          <Annotation k="Load" v="1,250 kN" className="left-[2%] bottom-[22%]" reveal="load" />
+          <Annotation k="Safety Factor" v="2.8" className="right-[8%] bottom-[14%]" side="right" reveal="load" />
         </div>
         <div className="absolute right-[10%] top-[24%] hidden text-right lg:block">
           <span className="block text-[0.72rem] font-semibold text-navy">Custom Fabrication</span>
@@ -44,14 +44,14 @@ export function Hero() {
       </div>
 
       <div className="container-x relative flex min-h-[100svh] flex-col justify-center pt-24 pb-24">
-        <div className="max-w-xl">
+        <div className="max-w-2xl">
           <div data-reveal>
             <Eyebrow>25+ Years of Engineering Excellence</Eyebrow>
           </div>
           <h1
             data-reveal
             data-delay="0.08"
-            className="mt-5 text-[2.6rem] font-extrabold leading-[1.04] text-navy sm:text-[3.2rem] lg:text-[3.6rem]"
+            className="mt-5 text-[2.4rem] font-extrabold leading-[1.06] text-navy sm:text-[3rem] lg:text-[3.3rem]"
           >
             Engineering solutions
             <br />

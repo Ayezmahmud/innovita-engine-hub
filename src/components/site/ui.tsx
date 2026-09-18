@@ -38,15 +38,17 @@ export function Annotation({
   className,
   side = "left",
   delay,
+  reveal = "scroll",
 }: {
   k: string;
   v: string;
   className: string;
   side?: "left" | "right";
-  delay?: number;
+  delay?: number | undefined;
+  reveal?: "scroll" | "load";
 }) {
   return (
-    <div className={`anno ${className}`} data-anno style={{ flexDirection: side === "right" ? "row-reverse" : "row" }} data-delay={delay}>
+    <div className={`anno ${className}`} {...(reveal === "scroll" ? { "data-anno": true } : { "data-reveal": true })} style={{ flexDirection: side === "right" ? "row-reverse" : "row" }} data-delay={delay}>
       <span className="anno-dot" />
       <span className="anno-line" />
       <span className={side === "right" ? "text-right" : ""}>

@@ -32,7 +32,7 @@ export function TechnicalAnalysis() {
           <div data-reveal>
             <Eyebrow>Technical Analysis</Eyebrow>
           </div>
-          <h2 data-reveal className="mt-4 text-[1.9rem] font-extrabold leading-[1.12] text-navy lg:text-[2.35rem]">
+          <h2 data-reveal className="mt-4 text-[1.8rem] font-extrabold leading-[1.12] text-navy lg:text-[2.1rem]">
             Detailed engineering calculations and analysis
           </h2>
           <p data-reveal className="mt-6 max-w-sm text-[0.88rem] leading-relaxed text-graphite">

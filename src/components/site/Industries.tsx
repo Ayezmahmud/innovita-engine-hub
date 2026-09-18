@@ -40,11 +40,11 @@ export function Industries() {
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/70 to-transparent" />
 
       <div className="container-x relative flex min-h-[82vh] items-center py-24">
-        <div ref={fg} className="max-w-md">
+        <div ref={fg} className="max-w-lg">
           <div data-reveal>
             <Eyebrow>Industries</Eyebrow>
           </div>
-          <h2 data-reveal className="mt-4 text-[2rem] font-extrabold leading-[1.1] text-navy lg:text-[2.5rem]">
+          <h2 data-reveal className="mt-4 text-[1.9rem] font-extrabold leading-[1.1] text-navy lg:text-[2.3rem]">
             Engineering for demanding
             <br />
             operating environments

@@ -59,7 +59,7 @@ export function HeroSceneFrame({ progress }: { progress: P }) {
     >
       <ScrollCamera progress={progress} base={[4.4, 2.2, 5.0]} arc={1.1} />
       <ExplodeDriver progress={progress} out={explode} curve={(p) => THREE.MathUtils.smoothstep(p, 0.25, 0.9)} />
-      <Gearbox explode={explode} spin={0.1} scale={0.95} />
+      <Gearbox explode={explode} spin={0.1} scale={0.8} />
     </SceneFrame>
   );
 }
