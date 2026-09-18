@@ -32,10 +32,10 @@ export function Hero() {
               <HeroSceneFrame progress={progress} />
             </Suspense>
           </ClientOnly>
-          <Annotation k="Stress" v="245 MPa" className="left-[6%] top-[12%]" reveal="load" />
-          <Annotation k="Material" v="S355 Steel" className="right-[4%] top-[20%]" side="right" reveal="load" />
-          <Annotation k="Load" v="1,250 kN" className="left-[2%] bottom-[22%]" reveal="load" />
-          <Annotation k="Safety Factor" v="2.8" className="right-[8%] bottom-[14%]" side="right" reveal="load" />
+          <Annotation k="Stress" v="245 MPa" className="anno-on-photo left-[6%] top-[12%]" reveal="load" />
+          <Annotation k="Material" v="S355 Steel" className="anno-on-photo right-[4%] top-[20%]" side="right" reveal="load" />
+          <Annotation k="Load" v="1,250 kN" className="anno-on-photo left-[2%] bottom-[22%]" reveal="load" />
+          <Annotation k="Safety Factor" v="2.8" className="anno-on-photo right-[8%] bottom-[14%]" side="right" reveal="load" />
         </div>
         <div className="absolute right-[10%] top-[24%] hidden text-right lg:block">
           <span className="block text-[0.72rem] font-semibold text-navy">Custom Fabrication</span>

@@ -370,3 +370,16 @@
 @utility animate-spin-slower {
   animation: spin-slow 70s linear infinite reverse;
 }
+
+/* annotations placed over photography */
+@utility anno-on-photo {
+  & .anno-k,
+  & .anno-v {
+    background: color-mix(in oklab, var(--background) 88%, transparent);
+    padding-inline: 0.3rem;
+    width: fit-content;
+  }
+  & .anno-k {
+    color: var(--graphite);
+  }
+}

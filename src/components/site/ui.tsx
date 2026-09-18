@@ -51,7 +51,7 @@ export function Annotation({
     <div className={`anno ${className}`} {...(reveal === "scroll" ? { "data-anno": true } : { "data-reveal": true })} style={{ flexDirection: side === "right" ? "row-reverse" : "row" }} data-delay={delay}>
       <span className="anno-dot" />
       <span className="anno-line" />
-      <span className={side === "right" ? "text-right" : ""}>
+      <span className={side === "right" ? "flex flex-col items-end text-right" : "flex flex-col items-start"}>
         <span className="anno-k block">{k}</span>
         <span className="anno-v block">{v}</span>
       </span>
