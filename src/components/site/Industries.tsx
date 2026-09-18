@@ -34,7 +34,7 @@ export function Industries() {
         height={960}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover transition-[object-position] duration-700"
-        style={{ objectPosition: tabs[active].pos }}
+        style={{ objectPosition: tabs[active]?.pos ?? "50% 50%" }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent md:to-55%" />
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/70 to-transparent" />

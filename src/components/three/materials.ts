@@ -49,10 +49,10 @@ export function createFeaUniforms(hot: THREE.Vector4[], axis = new THREE.Vector3
  */
 export function applyFea(mat: THREE.MeshStandardMaterial, u: FeaUniforms) {
   mat.onBeforeCompile = (shader) => {
-    shader.uniforms.uFea = u.uFea;
-    shader.uniforms.uInvRoot = u.uInvRoot;
-    shader.uniforms.uHot = u.uHot;
-    shader.uniforms.uAxis = u.uAxis;
+    shader.uniforms['uFea'] = u.uFea;
+    shader.uniforms['uInvRoot'] = u.uInvRoot;
+    shader.uniforms['uHot'] = u.uHot;
+    shader.uniforms['uAxis'] = u.uAxis;
 
     shader.vertexShader = shader.vertexShader
       .replace(
@@ -142,8 +142,8 @@ export function createMaterials(mode: RenderMode, fea?: FeaUniforms): MaterialSe
       ...(wire
         ? { wireframe: true, color: "#2b3a5c", metalness: 0, roughness: 1, transparent: true, opacity: 0.55 }
         : {}),
-      roughnessMap: t ?? undefined,
-      bumpMap: t ?? undefined,
+      roughnessMap: t,
+      bumpMap: t,
       bumpScale: bump,
       envMapIntensity: 1.15,
     });
