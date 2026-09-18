@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
-import { initSmoothScroll, useReveal } from "@/lib/motion";
-import { Header } from "@/components/site/Header";
+import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import { Capabilities } from "@/components/site/Capabilities";
 import { Services } from "@/components/site/Services";
@@ -11,7 +9,6 @@ import { Process } from "@/components/site/Process";
 import { Projects } from "@/components/site/Projects";
 import { Stats } from "@/components/site/Stats";
 import { CTA } from "@/components/site/CTA";
-import { Footer } from "@/components/site/Footer";
 
 const title = "INNOVITA Engineering Solutions | Mining, Energy & Industrial Engineering";
 const description =
@@ -32,36 +29,17 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const page = useRef<HTMLDivElement>(null);
-  useReveal(page);
-  useEffect(() => {
-    let cleanup: (() => void) | undefined;
-    let cancelled = false;
-    initSmoothScroll().then((c) => {
-      if (cancelled) c();
-      else cleanup = c;
-    });
-    return () => {
-      cancelled = true;
-      cleanup?.();
-    };
-  }, []);
-
   return (
-    <div id="top" ref={page} className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <Capabilities />
-        <Services />
-        <Industries />
-        <TechnicalAnalysis />
-        <Process />
-        <Projects />
-        <Stats />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <SiteLayout>
+      <Hero />
+      <Capabilities />
+      <Services />
+      <Industries />
+      <TechnicalAnalysis />
+      <Process />
+      <Projects />
+      <Stats />
+      <CTA />
+    </SiteLayout>
   );
 }
