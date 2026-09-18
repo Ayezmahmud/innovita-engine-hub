@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject } from "react";
+import { useRef, type RefObject } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { SceneFrame } from "./SceneFrame";
@@ -48,12 +48,6 @@ function Fallback({ src, alt }: { src: string; alt: string }) {
 }
 
 /* ---------- HERO ---------- */
-export function HeroScene({ progress }: { progress: P }) {
-  const explode = useRef(0);
-  useFrame(() => {}); // noop placeholder to satisfy hook rule in wrapper (not rendered inside Canvas)
-  return null;
-}
-
 export function HeroSceneFrame({ progress }: { progress: P }) {
   const explode = useRef(0);
   return (
@@ -65,7 +59,7 @@ export function HeroSceneFrame({ progress }: { progress: P }) {
     >
       <ScrollCamera progress={progress} base={[4.4, 2.2, 5.0]} arc={1.1} />
       <ExplodeDriver progress={progress} out={explode} curve={(p) => THREE.MathUtils.smoothstep(p, 0.25, 0.9)} />
-      <Gearbox explode={explode} spin={0.1} scale={0.95} />
+      <Gearbox explode={explode} spin={0.1} scale={0.8} />
     </SceneFrame>
   );
 }
@@ -129,7 +123,6 @@ export function ProcessWireScene() {
 
 export function ProcessSolidScene({ progress }: { progress: P }) {
   const fea = useRef(0);
-  useEffect(() => {}, []);
   return (
     <SceneFrame
       camera={{ position: [4.6, 2.4, 4.8], fov: 30 }}

@@ -56,7 +56,7 @@ export function SceneFrame({
     const el = holder.current;
     if (!el) return;
     const near = new IntersectionObserver(
-      ([e]) => {
+      (entries) => { const e = entries[0]; if (!e) return;
         if (e.isIntersecting) {
           setMounted(true);
           near.disconnect();
@@ -64,7 +64,7 @@ export function SceneFrame({
       },
       { rootMargin: "600px 0px" },
     );
-    const vis = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { rootMargin: "80px 0px" });
+    const vis = new IntersectionObserver((entries) => setVisible(!!entries[0]?.isIntersecting), { rootMargin: "80px 0px" });
     near.observe(el);
     vis.observe(el);
     return () => {

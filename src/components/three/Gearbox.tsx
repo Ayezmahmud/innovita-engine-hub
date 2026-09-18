@@ -1,4 +1,4 @@
-import { useMemo, useRef, type RefObject } from "react";
+import React, { useMemo, useRef, type RefObject } from "react";
 import { useFrame } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
@@ -57,7 +57,7 @@ function makeGearGeometry(teeth: number, rOuter: number, thickness: number, bore
 
 type M = ReturnType<typeof createMaterials>;
 
-function HexBolt({ m, size = 0.045, ...props }: { m: M; size?: number } & JSX.IntrinsicElements["group"]) {
+function HexBolt({ m, size = 0.045, ...props }: { m: M; size?: number | undefined } & React.ComponentProps<"group">) {
   return (
     <group {...props}>
       <mesh material={m.bolt} position={[0, size * 0.55, 0]} castShadow>
@@ -70,7 +70,7 @@ function HexBolt({ m, size = 0.045, ...props }: { m: M; size?: number } & JSX.In
   );
 }
 
-function BoltCircle({ m, count, radius, size }: { m: M; count: number; radius: number; size?: number }) {
+function BoltCircle({ m, count, radius, size }: { m: M; count: number; radius: number; size?: number | undefined }) {
   return (
     <>
       {Array.from({ length: count }).map((_, i) => {
@@ -211,7 +211,7 @@ export function Gearbox({ mode = "solid", fea = false, explode, feaAmount, spin 
         [0.95, 0.45],
         [-0.95, -0.45],
         [0.95, -0.45],
-      ].map(([x, z], i) => (
+      ].map(([x = 0, z = 0], i) => (
         <group key={i} position={[x, -0.7, z]}>
           <RoundedBox args={[0.5, 0.12, 0.42]} radius={0.02} material={m.cast} castShadow receiveShadow />
           <HexBolt m={m} position={[x > 0 ? 0.14 : -0.14, 0.06, 0]} size={0.05} />

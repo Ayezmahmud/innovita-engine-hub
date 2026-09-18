@@ -21,7 +21,7 @@ export function Capabilities() {
           <div data-reveal>
             <Eyebrow>Our Capabilities</Eyebrow>
           </div>
-          <h2 data-reveal className="mt-4 text-[2rem] font-extrabold leading-[1.1] text-navy lg:text-[2.5rem]">
+          <h2 data-reveal className="mt-4 text-[1.9rem] font-extrabold leading-[1.1] text-navy lg:text-[2.3rem]">
             Delivering real
             <br />
             engineering outcomes

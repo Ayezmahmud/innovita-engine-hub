@@ -38,7 +38,7 @@ export function Stats() {
     registerGsap();
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el) => {
-        const end = Number(el.dataset.count);
+        const end = Number(el.dataset['count']);
         const o = { v: 0 };
         gsap.to(o, {
           v: end,
