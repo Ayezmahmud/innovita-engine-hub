@@ -1,4 +1,4 @@
-import { useMemo, useRef, type RefObject } from "react";
+import React, { useMemo, useRef, type RefObject } from "react";
 import { useFrame } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
@@ -57,7 +57,7 @@ function makeGearGeometry(teeth: number, rOuter: number, thickness: number, bore
 
 type M = ReturnType<typeof createMaterials>;
 
-function HexBolt({ m, size = 0.045, ...props }: { m: M; size?: number } & JSX.IntrinsicElements["group"]) {
+function HexBolt({ m, size = 0.045, ...props }: { m: M; size?: number } & React.ComponentProps<"group">) {
   return (
     <group {...props}>
       <mesh material={m.bolt} position={[0, size * 0.55, 0]} castShadow>
