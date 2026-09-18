@@ -2,12 +2,6 @@ import { useRef } from "react";
 import heroRobot from "@/assets/hero-robot.jpg";
 import { ArrowIcon } from "./ui";
 
-const stats = [
-  { value: "25+", label: "Years of experience" },
-  { value: "480+", label: "Projects delivered" },
-  { value: "12", label: "Countries served" },
-  { value: "98%", label: "Client retention" },
-];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -54,25 +48,6 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-auto pt-16">
-          <dl
-            data-reveal
-            data-delay="0.3"
-            className="grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line/60 shadow-sm backdrop-blur sm:grid-cols-4"
-          >
-            {stats.map((s) => (
-              <div key={s.label} className="bg-background/85 px-6 py-5 backdrop-blur">
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="text-2xl font-extrabold tracking-tight text-navy">
-                  {s.value}
-                </dd>
-                <dd className="mt-1 text-[0.7rem] font-medium uppercase tracking-[0.1em] text-muted-foreground">
-                  {s.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   );
